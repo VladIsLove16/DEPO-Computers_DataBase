@@ -14,7 +14,7 @@
                 <TextBox Name="CompanyLegalAddress" HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="Legal Address" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
 
                 <TextBox Name="CompanyActualAddress" HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="Actual Address" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-            <Button Content="Создать Компанию" Width="147" Click="CreateCompany"/>
+            <Button Content="Создать Компанию" Width="147" Click="CreateCompanyButton_Click"/>
             
         </StackPanel>
         <StackPanel>
@@ -22,10 +22,13 @@
                 <TextBox Name="EmployeeLastName" HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="EmployeeLastName" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
                 <TextBox Name="EmployeePassportSerial" HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="PassportSerial" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
                 <TextBox Name="EmployeePassportNumber" HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="PassportNumber" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-                <Button Content="Создать Сотрудника" Width="147" Click="CreateEmployee"/>
+                <Button Content="Создать Сотрудника" Width="147" Click="CreateEmployeeButton_Click"/>
 
             </StackPanel>
         </StackPanel>
+        <Button Content="Экспорт в CSV" Width="147" Click="ExportToCSVButton_Click" Margin="326,9,326,390"/>
+        <Button Content="Импорт из CSV" Width="147" Click="ImportFromCSVButton_Click" Margin="328,54,325,345"/>
+
     </Grid>
 
 </Window>

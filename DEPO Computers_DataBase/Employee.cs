@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DEPO_Computers_DataBase
 {
-    internal class Employee
+    public class Employee
     {
         public string FirstName="Фамилия";
         public string LastName="Имя";

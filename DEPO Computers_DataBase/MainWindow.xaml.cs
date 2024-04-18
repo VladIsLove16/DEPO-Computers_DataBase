@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using Microsoft.Win32;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,13 +18,15 @@ namespace DEPO_Computers_DataBase
     /// </summary>
     public partial class MainWindow : Window
     {
-        private DataBase dataBase;
-        string csvDatabaseFilePath = Directory.GetCurrentDirectory().ToString() + "\\database.csv";
+        private DataBase DataBase=new DataBase();
+        private Repository Repository;
+        private string CSVFilePath = Directory.GetCurrentDirectory() + "\\database.csv";
         public MainWindow()
         {
             InitializeComponent();
+            Repository = new Repository(DataBase);
         }
-        private void CreateCompany(object sender, RoutedEventArgs e)
+        private void CreateCompanyButton_Click(object sender, RoutedEventArgs e)
         {
             Company company = new Company()
             {
@@ -32,10 +35,10 @@ namespace DEPO_Computers_DataBase
                 LegalAddress = CompanyLegalAddress.Text,
                 TIN = CompanyTIN.Text
             };
-            dataBase.AddCompany(company);
+            DataBase.AddCompany(company);
         }
 
-        private void CreateEmployee(object sender, RoutedEventArgs e)
+        private void CreateEmployeeButton_Click(object sender, RoutedEventArgs e)
         {
             Employee employee = new Employee()
             {
@@ -45,7 +48,55 @@ namespace DEPO_Computers_DataBase
                 PassportNumber = EmployeePassportNumber.Text
 
             };
-            dataBase.AddEmployee(employee);
+            DataBase.AddEmployee(employee);
+        }
+
+        private void ExportToCSVButton_Click(object sender, RoutedEventArgs e)
+        {
+            string? filePath = GetExportFilePath();
+            if (string.IsNullOrEmpty(filePath))
+                return;
+            bool status = Repository.SaveToCSV(filePath);
+            if (status) MessageBox.Show("Данные успешно экспортированы в CSV файл.");
+            else MessageBox.Show("Ошибка экспорта в CSV файл.");
+        }
+
+        private void ImportFromCSVButton_Click(object sender, RoutedEventArgs e)
+        {
+            string? filePath = GetImportFilePath();
+            if (string.IsNullOrEmpty(filePath))
+                return;
+            bool status = Repository.GetFromCSV(filePath);
+            if (status) MessageBox.Show("Данные успешно импортированы из CSV файла.");
+            else MessageBox.Show("Ошибка импорта из CSV файла.");
+        }
+
+        private string? GetExportFilePath()
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "CSV файл (*.csv)|*.csv";
+            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            saveFileDialog.Title = "Выберите файл CSV для экспорта";
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                return saveFileDialog.FileName;
+            }
+            return null; 
+        }
+        private string? GetImportFilePath()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "CSV файл (*.csv)|*.csv";
+            openFileDialog.Title = "Выберите файл CSV для импорта";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                return openFileDialog.FileName;
+            }
+            return null; 
+        }
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
