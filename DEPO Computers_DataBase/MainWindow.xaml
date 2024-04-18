@@ -7,8 +7,26 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Create&#xD;&#xA;" HorizontalAlignment="Left" Margin="371,21,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="57,32,0,0" TextWrapping="Wrap" Text="CompanyName&#xD;&#xA;" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+        <StackPanel Orientation="Horizontal">
+        <StackPanel>
+            <TextBox HorizontalAlignment="Left" Margin="21,19,0,0" TextWrapping="Wrap" Text="CompanyName" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+            <TextBox HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="ИНН" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+            <TextBox HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="Legal  Address" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+            
+            <TextBox HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="actual Address" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+            <Button Content="Создать Компанию" Width="147"/>
+            
+        </StackPanel>
+        <StackPanel>
+            <TextBox HorizontalAlignment="Left" Margin="21,19,0,0" TextWrapping="Wrap" Text="CompanyName" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+            <TextBox HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="ИНН" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+            <TextBox HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="Legal  Address" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+            
+            <TextBox HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="actual Address" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+            <Button Content="Создать Сотрудника" Width="147"/>
 
+            </StackPanel>
+        </StackPanel>
     </Grid>
+
 </Window>
