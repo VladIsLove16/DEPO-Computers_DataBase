@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DEPO Computers_DataBase", "DEPO Computers_DataBase\DEPO Computers_DataBase.csproj", "{B67AEDA1-566D-4131-8AB5-0CA8F64D79D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DEPO Computers_DataBase", "DEPO Computers_DataBase\DEPO Computers_DataBase.csproj", "{C2C152BE-3840-450B-A1B9-73F04FF0663A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B67AEDA1-566D-4131-8AB5-0CA8F64D79D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B67AEDA1-566D-4131-8AB5-0CA8F64D79D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B67AEDA1-566D-4131-8AB5-0CA8F64D79D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B67AEDA1-566D-4131-8AB5-0CA8F64D79D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2C152BE-3840-450B-A1B9-73F04FF0663A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2C152BE-3840-450B-A1B9-73F04FF0663A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2C152BE-3840-450B-A1B9-73F04FF0663A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2C152BE-3840-450B-A1B9-73F04FF0663A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
