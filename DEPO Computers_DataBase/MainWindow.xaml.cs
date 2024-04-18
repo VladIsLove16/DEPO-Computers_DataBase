@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,14 +17,35 @@ namespace DEPO_Computers_DataBase
     /// </summary>
     public partial class MainWindow : Window
     {
+        private DataBase dataBase;
+        string csvDatabaseFilePath = Directory.GetCurrentDirectory().ToString() + "\\database.csv";
         public MainWindow()
         {
             InitializeComponent();
         }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void CreateCompany(object sender, RoutedEventArgs e)
         {
+            Company company = new Company()
+            {
+                Name = CompanyName.Text,
+                ActualAddress = CompanyActualAddress.Text,
+                LegalAddress = CompanyLegalAddress.Text,
+                TIN = CompanyTIN.Text
+            };
+            dataBase.AddCompany(company);
+        }
 
+        private void CreateEmployee(object sender, RoutedEventArgs e)
+        {
+            Employee employee = new Employee()
+            {
+                FirstName = EmployeeFirstName.Text,
+                LastName = EmployeeLastName.Text,
+                PassportSerial = EmployeePassportSerial.Text,
+                PassportNumber = EmployeePassportNumber.Text
+
+            };
+            dataBase.AddEmployee(employee);
         }
     }
 }

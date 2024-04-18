@@ -9,21 +9,20 @@
     <Grid>
         <StackPanel Orientation="Horizontal">
         <StackPanel>
-            <TextBox HorizontalAlignment="Left" Margin="21,19,0,0" TextWrapping="Wrap" Text="CompanyName" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-            <TextBox HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="ИНН" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-            <TextBox HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="Legal  Address" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-            
-            <TextBox HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="actual Address" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-            <Button Content="Создать Компанию" Width="147"/>
+                <TextBox Name="CompanyName" HorizontalAlignment="Left" Margin="21,19,0,0" TextWrapping="Wrap" Text="CompanyName" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+                <TextBox Name="CompanyTIN" HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="ИНН" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+                <TextBox Name="CompanyLegalAddress" HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="Legal Address" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+
+                <TextBox Name="CompanyActualAddress" HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="Actual Address" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+            <Button Content="Создать Компанию" Width="147" Click="CreateCompany"/>
             
         </StackPanel>
         <StackPanel>
-            <TextBox HorizontalAlignment="Left" Margin="21,19,0,0" TextWrapping="Wrap" Text="CompanyName" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-            <TextBox HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="ИНН" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-            <TextBox HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="Legal  Address" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-            
-            <TextBox HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="actual Address" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-            <Button Content="Создать Сотрудника" Width="147"/>
+                <TextBox Name="EmployeeFirstName" HorizontalAlignment="Left" Margin="21,19,0,0" TextWrapping="Wrap" Text="EmployeeFirstName" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+                <TextBox Name="EmployeeLastName" HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="EmployeeLastName" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+                <TextBox Name="EmployeePassportSerial" HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="PassportSerial" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+                <TextBox Name="EmployeePassportNumber" HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="PassportNumber" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+                <Button Content="Создать Сотрудника" Width="147" Click="CreateEmployee"/>
 
             </StackPanel>
         </StackPanel>
