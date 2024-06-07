@@ -20,11 +20,14 @@ namespace DEPO_Computers_DataBase
     {
         private DataBase DataBase=new DataBase();
         private Repository Repository;
-        private string CSVFilePath = Directory.GetCurrentDirectory() + "\\database.csv";
+        private List<Company> Companys;
+        private List<Employee> Employees;
         public MainWindow()
         {
             InitializeComponent();
             Repository = new Repository(DataBase);
+            Companys = DataBase.GetCompanyList();
+            Employees = DataBase.GetEmployeeList();
         }
         private void CreateCompanyButton_Click(object sender, RoutedEventArgs e)
         {

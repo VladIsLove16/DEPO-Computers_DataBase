@@ -20,9 +20,7 @@ namespace DEPO_Computers_DataBase
         {
             try
             {
-            List<Company> companyList = database.GetCompanyList();
-            List<Employee> employeeList = database.GetEmployeeList();
-            WriteToCSV(filepath, companyList, employeeList);
+            WriteToCSV(filepath, database.Companys.ToList(), database.Employees.ToList());
             return true;
             } 
             catch (Exception ex)
@@ -84,10 +82,10 @@ namespace DEPO_Computers_DataBase
                 }
                 foreach(var company in companies)
                 {
-                    database.AddCompany(company);
+                    database.Companys.Add(company);
                 }
                 foreach (var employee in employees) { 
-                    database.AddEmployee(employee);
+                    database.Employees.Add(employee);
                 }
                 return true;
             }

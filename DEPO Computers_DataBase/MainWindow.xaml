@@ -14,21 +14,35 @@
                 <TextBox Name="CompanyLegalAddress" HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="Legal Address" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
 
                 <TextBox Name="CompanyActualAddress" HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="Actual Address" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-                <Button Content="Создать Компанию" Width="147" Click="CreateCompanyButton_Click"/>
-
+               
             </StackPanel>
             <StackPanel>
                 <TextBox Name="EmployeeFirstName" HorizontalAlignment="Left" Margin="21,19,0,0" TextWrapping="Wrap" Text="EmployeeFirstName" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
                 <TextBox Name="EmployeeLastName" HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="EmployeeLastName" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
                 <TextBox Name="EmployeePassportSerial" HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="PassportSerial" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
                 <TextBox Name="EmployeePassportNumber" HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" Text="PassportNumber" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-                <Button Content="Создать Сотрудника" Width="147" Click="CreateEmployeeButton_Click"/>
-
+                
             </StackPanel>
         </StackPanel>
         <StackPanel Margin="20">
             <Button Content="Экспорт в CSV" Click="ExportToCSVButton_Click" Width="136"/>
             <Button Content="Импорт из CSV" Width="147" Click="ImportFromCSVButton_Click"/>
+        </StackPanel>
+        <StackPanel Margin="20">
+            <StackPanel Margin="20">
+                <Button Content="Создать Сотрудника" Width="147" Click="CreateEmployeeButton_Click"/>
+                <Button Content="Выбрать Сотрудника" Width="147" Click="SelectEmployeeButton_Click"/>
+                <Button Content="Изменить Сотрудника" Width="147" Click="CreateEmployeeButton_Click"/>
+                <Button Content="Удалить Сотрудника" Width="147" Click="CreateEmployeeButton_Click"/>
+           
+            </StackPanel>
+            <StackPanel Margin="20">
+                <Button Content="Создать Компанию" Width="147" Click="CreateCompanyButton_Click"/>
+                <Button Content="Выбрать Компанию" Width="147" Click="CreateCompanyButton_Click"/>
+                <Button Content="Редактировать Компанию" Width="147" Click="CreateCompanyButton_Click"/>
+                <Button Content="Удалить Компанию" Width="147" Click="CreateCompanyButton_Click"/>
+                
+            </StackPanel>
         </StackPanel>
     </Grid>
 

@@ -5,14 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using Microsoft.Extensions.Options;
 namespace DEPO_Computers_DataBase
 {
 
     public class DataBase : DbContext
     {
-        private DbSet<Company> companys => Set<Company>();
-        private DbSet<Employee> employees => Set<Employee>();
+        public DbSet<Company> Companys { get; set; } = null!;
+        public DbSet<Employee> Employees { get; set; } = null!;
 
         public DataBase()
         {
@@ -24,11 +25,5 @@ namespace DEPO_Computers_DataBase
             if (optionsBuilder1 == null) Debug.WriteLine("Connection error");
             else Debug.WriteLine("Connected");
         }
-        public void AddCompany(Company company) { companys.Add(company); SaveChanges(); }
-        public void RemoveCompany(Company company) { companys.Remove(company); SaveChanges(); }
-        public List<Company> GetCompanyList() { return companys.ToList(); }
-        public void AddEmployee(Employee employee) { employees.Add(employee); SaveChanges(); }
-        public void RemoveEmployee(Employee employee) { employees.Remove(employee); SaveChanges(); }
-        public List<Employee> GetEmployeeList() { return employees.ToList(); }
     }
 }
