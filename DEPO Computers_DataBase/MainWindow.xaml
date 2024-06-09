@@ -53,8 +53,8 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Margin="20,20,20,20" Grid.RowSpan="2">
-            <Button Content="Экспорт в CSV" Click="ExportToCSVButton_Click" Width="136"/>
-            <Button Content="Импорт из CSV" Width="147" Click="ImportFromCSVButton_Click"/>
+            <!--<Button Content="Экспорт в CSV" Click="ExportToCSVButton_Click" Width="136"/>-->
+            <!--<Button Content="Импорт из CSV" Width="147" Click="ImportFromCSVButton_Click"/>-->
         </StackPanel>
         <StackPanel Margin="20,20,20,20" Grid.RowSpan="2">
             <StackPanel Margin="20">

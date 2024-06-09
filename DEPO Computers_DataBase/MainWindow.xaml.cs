@@ -97,7 +97,7 @@ namespace DEPO_Computers_DataBase
         }
         private void LoadCompanysEmploeeys()
         {
-            CompanyEmploees = new ObservableCollection<Employee>(Employees.Where(u => u.CompanyId == SCompany.ID).ToList());
+            CompanyEmploees = new ObservableCollection<Employee>(Employees.Where(u => u.Company == SCompany).ToList());
             CompanysEmploeesLB.ItemsSource = CompanyEmploees;
         }
         private void LoadDataToEmployeeDataView(Employee sEmployee)
@@ -183,7 +183,7 @@ namespace DEPO_Computers_DataBase
         //----
         private void CreateCompanyButton_Click(object sender, RoutedEventArgs e)
         {
-            EditCompanyWindow editCompanyWindow = new EditCompanyWindow(SCompany);
+            EditCompanyWindow editCompanyWindow = new EditCompanyWindow(new Company());
             editCompanyWindow.Owner = this;
             if( editCompanyWindow.ShowDialog()==true)
             {
@@ -203,16 +203,15 @@ namespace DEPO_Computers_DataBase
 
         private void UpdateCompanyButton_Click(object sender, RoutedEventArgs e)
         {
-            EditCompanyWindow editCompanyWindow = new EditCompanyWindow(SCompany);
-            editCompanyWindow.Owner = this;
             if(SCompany==null)
             {
                 MessageBox.Show("Выберите компанию", "Предупреждение!",
                        MessageBoxButton.OK);
                 return;
             }
-            else 
-                editCompanyWindow.Company = SCompany;
+            EditCompanyWindow editCompanyWindow = new EditCompanyWindow(SCompany);
+            editCompanyWindow.Owner = this;
+            editCompanyWindow.Company = SCompany;
             if (editCompanyWindow.ShowDialog() == true)
             {
 
@@ -231,7 +230,7 @@ namespace DEPO_Computers_DataBase
 
         private void CreateEmployeeButton_Click(object sender, RoutedEventArgs e)
         {
-            Window1 EditEmployeeWindow = new(SEmployee) { Owner=this};
+            EditEmployeeWindow EditEmployeeWindow = new(new Employee()) { Owner=this};
             if (EditEmployeeWindow.ShowDialog() == true)
             {
                 try
@@ -250,14 +249,16 @@ namespace DEPO_Computers_DataBase
         }
         private void UpdateEmployeeButton_Click(object sender, RoutedEventArgs e)
         {
-            Window1 EditEmployeeWindow = new(SEmployee) { Owner = this };
+            if(SEmployee==null)
+            {
+                MessageBox.Show("Выберите сотрудника", "Предупреждение!",
+                      MessageBoxButton.OK);
+                return;
+            }
+            EditEmployeeWindow EditEmployeeWindow = new(SEmployee) { Owner = this };
             if (EditEmployeeWindow.ShowDialog() == true)
             {
-                SEmployee.FirstName = EmployeeFirstName.Text;
-                SEmployee.LastName = EmployeeLastName.Text;
-                SEmployee.PassportSerial = EmployeePassportSerial.Text;
-                SEmployee.PassportNumber = EmployeePassportNumber.Text;
-                //DataBase.SaveChanges();
+                
             }
         }
 

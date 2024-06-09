@@ -19,10 +19,10 @@ namespace DEPO_Computers_DataBase
     /// <summary>
     /// Логика взаимодействия для Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class EditEmployeeWindow : Window
     {
         
-        public Window1(Employee employee)
+        public EditEmployeeWindow(Employee employee)
         {
             InitializeComponent();
             Employee= employee;

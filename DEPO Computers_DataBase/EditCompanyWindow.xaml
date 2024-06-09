@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DEPO_Computers_DataBase"
         mc:Ignorable="d"
-        Title="EditCompany" Height="345" Width="260">
+        Title="Компания" Height="345" Width="260">
     <Grid Margin="0,0,618,-24">
         <StackPanel Name="CompanyData" DataContext="Company" Margin="0,0,-242,27">
             <TextBox Name="CompanyName" Text="{Binding Path=Name}" HorizontalAlignment="Center"  TextWrapping="Wrap" Margin="0,20,0,0"  VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>

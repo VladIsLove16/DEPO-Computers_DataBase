@@ -22,7 +22,8 @@ namespace DEPO_Computers_DataBase.Data
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            DbContextOptionsBuilder optionsBuilder1 = optionsBuilder.UseMySql("server=localhost;user=root;password=123123;database=depoComputers;", new MySqlServerVersion(new Version(8, 3, 0)));
+            DbContextOptionsBuilder optionsBuilder1 = optionsBuilder.UseMySql("server=localhost;user=root;password=123123;database=depoComputers;",
+                new MySqlServerVersion(new Version(8, 3, 0)));
             if (optionsBuilder1 == null) Debug.WriteLine("Connection error");
             else Debug.WriteLine("Connected");
         }

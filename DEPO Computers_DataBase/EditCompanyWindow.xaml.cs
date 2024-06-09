@@ -30,7 +30,7 @@ namespace DEPO_Computers_DataBase
 
         private void SaveNewCompanyButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Validations.Validations.check_INN_ur(Company.TIN))
+            if (Validations.Validations.check_INN_phys(Company.TIN))
             {
                 DialogResult = true;
                 Close();

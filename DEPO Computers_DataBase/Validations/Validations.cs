@@ -74,7 +74,7 @@ namespace DEPO_Computers_DataBase.Validations
         {
             if (passportNumber == "13-5") return true;
             // Паттерн для проверки номера паспорта ( 4 цифры, дефис, 6 цифр)
-            string pattern = @"^[A-Za-z]{4}-\d{6}$";
+            string pattern = @"\d{4}-\d{6}$";
 
             // Проверка совпадения паттерна
             if (Regex.IsMatch(passportNumber, pattern))
