@@ -183,7 +183,7 @@ namespace DEPO_Computers_DataBase
         //----
         private void CreateCompanyButton_Click(object sender, RoutedEventArgs e)
         {
-            EditCompanyWindow editCompanyWindow = new EditCompanyWindow();
+            EditCompanyWindow editCompanyWindow = new EditCompanyWindow(SCompany);
             editCompanyWindow.Owner = this;
             if( editCompanyWindow.ShowDialog()==true)
             {
@@ -203,10 +203,22 @@ namespace DEPO_Computers_DataBase
 
         private void UpdateCompanyButton_Click(object sender, RoutedEventArgs e)
         {
-            SCompany.Name = CompanyName.Text;
-            SCompany.ActualAddress = CompanyActualAddress.Text;
-            SCompany.LegalAddress = CompanyLegalAddress.Text;
-            SCompany.TIN = CompanyTIN.Text;
+            EditCompanyWindow editCompanyWindow = new EditCompanyWindow(SCompany);
+            editCompanyWindow.Owner = this;
+            if(SCompany==null)
+            {
+                MessageBox.Show("Выберите компанию", "Предупреждение!",
+                       MessageBoxButton.OK);
+                return;
+            }
+            else 
+                editCompanyWindow.Company = SCompany;
+            if (editCompanyWindow.ShowDialog() == true)
+            {
+
+            }
+
+
             //DataBase.SaveChanges();
         }
 
@@ -219,7 +231,7 @@ namespace DEPO_Computers_DataBase
 
         private void CreateEmployeeButton_Click(object sender, RoutedEventArgs e)
         {
-            Window1 EditEmployeeWindow = new() { Owner=this};
+            Window1 EditEmployeeWindow = new(SEmployee) { Owner=this};
             if (EditEmployeeWindow.ShowDialog() == true)
             {
                 try
@@ -238,11 +250,15 @@ namespace DEPO_Computers_DataBase
         }
         private void UpdateEmployeeButton_Click(object sender, RoutedEventArgs e)
         {
-            SEmployee.FirstName = EmployeeFirstName.Text;
-            SEmployee.LastName = EmployeeLastName.Text;
-            SEmployee.PassportSerial = EmployeePassportSerial.Text;
-            SEmployee.PassportNumber = EmployeePassportNumber.Text;
-            //DataBase.SaveChanges();
+            Window1 EditEmployeeWindow = new(SEmployee) { Owner = this };
+            if (EditEmployeeWindow.ShowDialog() == true)
+            {
+                SEmployee.FirstName = EmployeeFirstName.Text;
+                SEmployee.LastName = EmployeeLastName.Text;
+                SEmployee.PassportSerial = EmployeePassportSerial.Text;
+                SEmployee.PassportNumber = EmployeePassportNumber.Text;
+                //DataBase.SaveChanges();
+            }
         }
 
         private void DeleteEmployeeButton_Click(object sender, RoutedEventArgs e)
@@ -253,7 +269,19 @@ namespace DEPO_Computers_DataBase
         }
         private void AddEmploeesToCompanyButton_Click(object sender, RoutedEventArgs e)
         {
-            if (SEmployee.Company != null)
+            if(SEmployee==null)
+            {
+                MessageBox.Show("Выберите сотрудника", "Ошибка!",
+                        MessageBoxButton.OK);
+                return;
+            }
+            if(SCompany==null)
+            {
+                MessageBox.Show("Выберите компанию", "Ошибка!",
+                        MessageBoxButton.OK);
+                return ;
+            }
+            if (SEmployee?.Company != null)
             {
                 if (MessageBox.Show("Изменить компанию?",
                      "Сотрудник уже состоит в компании",

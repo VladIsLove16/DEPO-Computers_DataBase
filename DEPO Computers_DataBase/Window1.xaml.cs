@@ -22,9 +22,10 @@ namespace DEPO_Computers_DataBase
     public partial class Window1 : Window
     {
         
-        public Window1()
+        public Window1(Employee employee)
         {
             InitializeComponent();
+            Employee= employee;
             EmployeeData.DataContext = Employee;
 
         }

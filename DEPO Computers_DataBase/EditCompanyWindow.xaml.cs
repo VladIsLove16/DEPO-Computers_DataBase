@@ -19,9 +19,10 @@ namespace DEPO_Computers_DataBase
 {
     public partial class EditCompanyWindow : Window
     {
-        public EditCompanyWindow()
+        public EditCompanyWindow(Company company)
         {
             InitializeComponent();
+            Company = company;
             CompanyData.DataContext = Company;
         }
 

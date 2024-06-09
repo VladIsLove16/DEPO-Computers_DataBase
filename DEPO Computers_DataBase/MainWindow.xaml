@@ -6,6 +6,15 @@
         xmlns:local="clr-namespace:DEPO_Computers_DataBase"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style x:Key="Text" TargetType="TextBlock">
+                <Setter Property="Background" Value="Cyan" />
+                <Setter Property="Margin" Value="0,20,0,0"></Setter>
+                <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="146*"/>
@@ -13,18 +22,21 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.RowSpan="2">
             <StackPanel Name="CompanyData" DataContext="Company">
-                <TextBox Name="CompanyName" Text="{Binding Path=Name}" HorizontalAlignment="Left" Margin="21,19,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-                <TextBox Name="CompanyTIN" Text="{Binding Path=TIN}" Margin="25,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-                <TextBox Name="CompanyLegalAddress" Text="{Binding Path=LegalAddress}" HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+                <TextBlock Style="{StaticResource Text}"   Name="CompanyName" Text="{Binding Path=Name}" HorizontalAlignment="Left" Margin="0,20,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"  />
 
-                
-                <TextBox Name="CompanyActualAddress" Text="{Binding Path=ActualAddress}" HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-                <ListBox Name="CompanysEmploeesLB" Height="141" DataContext="Employee" Width="164" >
+
+                <TextBlock Style="{StaticResource Text}" Name="CompanyTIN" Text="{Binding Path=TIN}" Margin="0,20,0,0" TextWrapping="Wrap" HorizontalAlignment="Left" Width="120"/>
+
+                <TextBlock Style="{StaticResource Text}" Name="CompanyLegalAddress" Text="{Binding Path=LegalAddress}" HorizontalAlignment="Left" Margin="0,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+
+                <TextBlock Style="{StaticResource Text}" Name="CompanyActualAddress" Text="{Binding Path=ActualAddress}" HorizontalAlignment="Left" Margin="0,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <ListBox Name="CompanysEmploeesLB" Height="141" Margin="0,20,0,0" DataContext="Employee" Width="164" >
                     <ListBox.ItemTemplate >
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Path=FirstName}"/>
-                                <TextBlock Text="{Binding Path=LastName}"/>
+                                <TextBlock Style="{StaticResource Text}" Text="{Binding Path=FirstName}"/>
+                                <TextBlock Style="{StaticResource Text}" Text="{Binding Path=LastName}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
@@ -32,11 +44,11 @@
 
             </StackPanel>
             <StackPanel Name="EmployeeData" DataContext="Employee">
-                <TextBox Name="EmployeeFirstName" Text="{Binding Path=FirstName}" HorizontalAlignment="Left" Margin="21,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-                <TextBox Name="EmployeeLastName" Text="{Binding Path=LastName}" HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-                <TextBox Name="EmployeePassportSerial" Text="{Binding Path=PassportSerial}" HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-                <TextBox Name="EmployeePassportNumber" Text="{Binding Path=PassportNumber}" HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-                <TextBox Name="EmployeeCompany" Text="{Binding Path=Company.Name}" HorizontalAlignment="Left" Margin="25,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+                <TextBlock Style="{StaticResource Text}" Name="EmployeeFirstName" Text="{Binding Path=FirstName}"   TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBlock Style="{StaticResource Text}" Name="EmployeeLastName" Text="{Binding Path=LastName}" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+                <TextBlock Style="{StaticResource Text}"  Name="EmployeePassportSerial" Text="{Binding Path=PassportSerial}"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBlock Style="{StaticResource Text}" Name="EmployeePassportNumber" Text="{Binding Path=PassportNumber}"   TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBlock Style="{StaticResource Text}" Name="EmployeeCompany" Text="{Binding Path=Company.Name}"   TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
             </StackPanel>
         </StackPanel>
@@ -47,14 +59,14 @@
         <StackPanel Margin="20,20,20,20" Grid.RowSpan="2">
             <StackPanel Margin="20">
                 <Button Content="Создать Сотрудника" Width="147" Click="CreateEmployeeButton_Click"/>
-                <!--<Button Content="Изменить Сотрудника" Width="147" Click="UpdateEmployeeButton_Click"/>-->
+                <Button Content="Изменить Сотрудника" Width="147" Click="UpdateEmployeeButton_Click"/>
                 <Button Content="Удалить Сотрудника" Width="147" Click="DeleteEmployeeButton_Click"/>
                 <ComboBox Name="EmployeeListCB"  Width="120" SelectionChanged="EmployeeListListCB_SelectionChanged">
                     <ComboBox.ItemTemplate >
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Path=FirstName}"/>
-                                <TextBlock Text="{Binding Path=LastName}"/>
+                                <TextBlock  Text="{Binding Path=FirstName}"/>
+                                <TextBlock  Text="{Binding Path=LastName}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
@@ -62,7 +74,7 @@
             </StackPanel>
             <StackPanel Margin="20">
                 <Button Content="Создать Компанию" Width="147" Click="CreateCompanyButton_Click"/>
-                <!--<Button Content="Редактировать Компанию" Width="147" Click="UpdateCompanyButton_Click"/>-->
+                <Button Content="Редактировать Компанию" Width="147" Click="UpdateCompanyButton_Click"/>
                 <Button Content="Удалить Компанию" Width="147" Click="DeleteCompanyButton_Click"/>
                 <ComboBox Name="CompanyListCB"  Width="120" DataContext="Companys" SelectionChanged="CompanyListCB_SelectionChanged" >
                     <ComboBox.ItemTemplate >
