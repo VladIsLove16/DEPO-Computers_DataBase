@@ -1,0 +1,20 @@
+﻿<Window x:Class="DEPO_Computers_DataBase.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DEPO_Computers_DataBase"
+        mc:Ignorable="d"
+        Title="Window1" Height="340" Width="193">
+    <Grid>
+        <StackPanel Name="EmployeeData" DataContext="Employee" Margin="0,0,2,1">
+            <TextBox Name="EmployeeFirstName" Text="{Binding Path=FirstName}"  HorizontalAlignment="Center"  TextWrapping="Wrap" Margin="0,20,0,0" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+            <TextBox Name="EmployeeLastName" Text="{Binding Path=LastName}"  HorizontalAlignment="Center"  TextWrapping="Wrap" Margin="0,20,0,0"  VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+            <TextBox Name="EmployeePassportSerial" Text="{Binding Path=PassportSerial}"  HorizontalAlignment="Center"  TextWrapping="Wrap" Margin="0,20,0,0" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+            <TextBox Name="EmployeePassportNumber" Text="{Binding Path=PassportNumber}"  HorizontalAlignment="Center"  TextWrapping="Wrap" Margin="0,20,0,0" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+            <TextBox Name="EmployeeCompany" Text="{Binding Path=Company.Name}"  HorizontalAlignment="Center"  TextWrapping="Wrap" Margin="0,20,0,0" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+            <Button Content="Сохранить изменения" Width="147" HorizontalAlignment="Center" Margin="0,20,0,0" Click="SaveNewEmployeeButton_Click"/>
+
+        </StackPanel>
+    </Grid>
+</Window>

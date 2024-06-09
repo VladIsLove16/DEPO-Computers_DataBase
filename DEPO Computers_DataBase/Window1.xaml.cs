@@ -1,6 +1,5 @@
 ﻿using DEPO_Computers_DataBase.Models;
 using DEPO_Computers_DataBase.Validations;
-using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,25 +16,28 @@ using System.Windows.Shapes;
 
 namespace DEPO_Computers_DataBase
 {
-    public partial class EditCompanyWindow : Window
+    /// <summary>
+    /// Логика взаимодействия для Window1.xaml
+    /// </summary>
+    public partial class Window1 : Window
     {
-        public EditCompanyWindow()
+        
+        public Window1()
         {
             InitializeComponent();
-            CompanyData.DataContext = Company;
+            EmployeeData.DataContext = Employee;
+
         }
-
-        public Company Company { get; internal set; } = new Company();
-
-        private void SaveNewCompanyButton_Click(object sender, RoutedEventArgs e)
+        public Employee Employee { get; internal set; } = new Employee();
+        private void SaveNewEmployeeButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Validations.Validations.check_INN_ur(Company.TIN))
+            if (Validations.Validations.ValidatePassportNumber(Employee.PassportSerial + "-"+ Employee.PassportNumber))
             {
                 DialogResult = true;
                 Close();
             }
             else
-                MessageBox.Show("Инн не валиден", "Предупреждение!",
+                MessageBox.Show("Паспорт не валиден", "Предупреждение!",
                     MessageBoxButton.OK);
         }
 

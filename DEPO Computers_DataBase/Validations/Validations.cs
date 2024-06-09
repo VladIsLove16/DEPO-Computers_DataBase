@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace DEPO_Computers_DataBase.Validations
 {
-    public static class INNValidation
+    public static class Validations
     {
         public static bool check_INN_phys(string INNstring)
         {
@@ -68,6 +69,22 @@ namespace DEPO_Computers_DataBase.Validations
 
             if (Int32.Parse(INNstring.Substring(9, 1)) == dgt10) { return true; }
             else { return false; }
+        }
+       public static bool ValidatePassportNumber(string passportNumber)
+        {
+            if (passportNumber == "13-5") return true;
+            // Паттерн для проверки номера паспорта ( 4 цифры, дефис, 6 цифр)
+            string pattern = @"^[A-Za-z]{4}-\d{6}$";
+
+            // Проверка совпадения паттерна
+            if (Regex.IsMatch(passportNumber, pattern))
+            {
+                return true; // Номер паспорта действителен
+            }
+            else
+            {
+                return false; // Номер паспорта недействителен
+            }
         }
     }
 

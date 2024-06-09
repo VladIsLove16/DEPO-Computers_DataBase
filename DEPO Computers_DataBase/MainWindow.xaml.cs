@@ -183,14 +183,18 @@ namespace DEPO_Computers_DataBase
         //----
         private void CreateCompanyButton_Click(object sender, RoutedEventArgs e)
         {
-            
-
             EditCompanyWindow editCompanyWindow = new EditCompanyWindow();
             editCompanyWindow.Owner = this;
             if( editCompanyWindow.ShowDialog()==true)
             {
-                Companys.Add(editCompanyWindow.Company);
+                try
+                { Companys.Add(editCompanyWindow.Company);
                 DataBase.Companys.Add(editCompanyWindow.Company);
+                }
+                catch {
+                    MessageBox.Show("Данные не добавлены", "Ошибка!",
+                        MessageBoxButton.OK);
+                }
             }
 
             
@@ -215,9 +219,21 @@ namespace DEPO_Computers_DataBase
 
         private void CreateEmployeeButton_Click(object sender, RoutedEventArgs e)
         {
-            Employee employee = GetEmployeeFromTextBoxes();
-            Employees.Add(employee);
-            DataBase.Employees.Add(employee);
+            Window1 EditEmployeeWindow = new() { Owner=this};
+            if (EditEmployeeWindow.ShowDialog() == true)
+            {
+                try
+                {
+                    Employees.Add(EditEmployeeWindow.Employee);
+                    DataBase.Employees.Add(EditEmployeeWindow.Employee);
+                }
+                catch
+                {
+                    MessageBox.Show("Данные не добавлены", "Ошибка!",
+                        MessageBoxButton.OK);
+                }
+            }
+          
             //DataBase.SaveChanges();
         }
         private void UpdateEmployeeButton_Click(object sender, RoutedEventArgs e)
