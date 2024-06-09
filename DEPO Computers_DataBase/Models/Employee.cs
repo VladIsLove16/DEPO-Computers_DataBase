@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DEPO_Computers_DataBase
+namespace DEPO_Computers_DataBase.Models
 {
     public class Employee
     {
@@ -14,8 +14,9 @@ namespace DEPO_Computers_DataBase
         public string BirthDay { get; set; } = "День Рождения";
         public string PassportSerial { get; set; } = "123456";
         public string PassportNumber { get; set; } = "1234";
-        public Company Company { get; set; }
-        public Employee() { }   
+        public int? CompanyId { get; set; }
+        public Company Company { get; set; } = null;
+        public Employee() { }
 
     }
 }

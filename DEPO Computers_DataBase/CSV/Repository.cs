@@ -6,26 +6,28 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DEPO_Computers_DataBase.Data;
+using DEPO_Computers_DataBase.Models;
 
-namespace DEPO_Computers_DataBase
+namespace DEPO_Computers_DataBase.CSV
 {
     public class Repository
     {
         DataBase database;
         public Repository(DataBase dataBase)
         {
-            this.database = dataBase;   
+            database = dataBase;
         }
         public bool SaveToCSV(string filepath)
         {
             try
             {
-            WriteToCSV(filepath, database.Companys.ToList(), database.Employees.ToList());
-            return true;
-            } 
+                WriteToCSV(filepath, database.Companys.ToList(), database.Employees.ToList());
+                return true;
+            }
             catch (Exception ex)
             {
-                Debug   .WriteLine(ex);
+                Debug.WriteLine(ex);
                 return false;
             }
         }
@@ -77,19 +79,20 @@ namespace DEPO_Computers_DataBase
                                 PassportNumber = values[3]
                             });
                         }
-                        
+
                     }
                 }
-                foreach(var company in companies)
+                foreach (var company in companies)
                 {
                     database.Companys.Add(company);
                 }
-                foreach (var employee in employees) { 
+                foreach (var employee in employees)
+                {
                     database.Employees.Add(employee);
                 }
                 return true;
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex);
                 return false;
@@ -105,7 +108,7 @@ namespace DEPO_Computers_DataBase
             {
                 if (companies == null || companies.Count == 0) Debug.WriteLine("Список Companies Пуст");
                 else WriteCompanies(sw, companies);
-                if(employees == null || employees.Count == 0) Debug.WriteLine("Список Employees Пуст");
+                if (employees == null || employees.Count == 0) Debug.WriteLine("Список Employees Пуст");
                 else WriteEmploees(sw, employees);
             }
         }
